@@ -1,28 +1,39 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="main-container">
+    <AppHeader />
+    <NavigationBar />
+    <FindLocation />
+    <PogodeoApp />
+    <SiteFooter />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AppHeader from "./components/AppHeader.vue";
+import NavigationBar from "./components/NavigationBar.vue";
+import FindLocation from "./components/FindLocation.vue";
+import PogodeoApp from "./components/PogodeoApp.vue";
+import SiteFooter from "./components/SiteFooter.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    AppHeader,
+    FindLocation,
+    NavigationBar,
+    PogodeoApp,
+    SiteFooter
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+#main-container {
+  align-content: center;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin: 0px;
+  height: 100%;
+  color: #bfc1c8;
+  background: #083c46;
 }
 </style>
