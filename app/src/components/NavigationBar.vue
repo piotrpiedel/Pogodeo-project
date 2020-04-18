@@ -4,19 +4,19 @@
       <div class="row">
         <ul class="list-inline">
           <li class="list-inline-item">
-            <a href="index.html">Aktualna pogoda</a>
+            <router-link to="/">Aktualna pogoda</router-link>
           </li>
           <li class="list-inline-item">
-            <a href="news.html">Pogoda długoterminowa</a>
+            <router-link to="/about">Pogoda długoterminowa</router-link>
           </li>
           <li class="list-inline-item">
-            <a href="live-cameras.html">Pogoda szczegółowa</a>
+            <router-link to="/about">Pogoda szczegółowa</router-link>
           </li>
           <li class="list-inline-item">
-            <a href="photos.html">Mapa okolicznych burz</a>
+            <router-link to="/about">Mapa okolicznych burz</router-link>
           </li>
           <li class="list-inline-item">
-            <a href="contact.html">Informacje o stronie</a>
+            <router-link to="/about">Informacje o stronie</router-link>
           </li>
         </ul>
       </div>
@@ -56,6 +56,7 @@ export default {
   float: left;
   margin-left: 10px;
 }
+
 .navigation-bar .list-inline .list-inline-item a {
   padding: 5px 25px;
   color: #bfc1c8;
@@ -64,6 +65,7 @@ export default {
   border-radius: 30px;
   font-weight: 400;
 }
+
 .navigation-bar .list-inline .list-inline-item:hover a {
   border-color: #009ad8;
   color: #bfc1c8;
