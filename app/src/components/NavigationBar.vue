@@ -13,7 +13,7 @@
             <router-link to="/about">Pogoda szczegółowa</router-link>
           </li>
           <li class="list-inline-item">
-            <router-link to="/about">Mapa okolicznych burz</router-link>
+            <router-link to="/storm">Mapa okolicznych burz</router-link>
           </li>
           <li class="list-inline-item">
             <router-link to="/about">Informacje o stronie</router-link>
