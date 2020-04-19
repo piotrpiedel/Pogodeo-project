@@ -3,7 +3,7 @@
     <AppHeader />
     <NavigationBar />
     <FindLocation />
-    <PogodeoApp />
+    <router-view/>
     <SiteFooter />
   </div>
 </template>
@@ -12,7 +12,6 @@
 import AppHeader from "./components/AppHeader.vue";
 import NavigationBar from "./components/NavigationBar.vue";
 import FindLocation from "./components/FindLocation.vue";
-import PogodeoApp from "./components/PogodeoApp.vue";
 import SiteFooter from "./components/SiteFooter.vue";
 
 export default {
@@ -21,7 +20,6 @@ export default {
     AppHeader,
     FindLocation,
     NavigationBar,
-    PogodeoApp,
     SiteFooter
   }
 };
