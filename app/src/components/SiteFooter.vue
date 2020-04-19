@@ -1,8 +1,6 @@
 <template>
   <footer class="site-footer">
-    <div class="container">
-      <p class="colophon">Copyright 2019 Pogodeo. Designed by Pogodeo.inc. All rights reserved</p>
-    </div>
+    <p class="colophon">Copyright 2019 Pogodeo. Designed by Pogodeo.inc. All rights reserved</p>
   </footer>
 </template>
 
@@ -18,10 +16,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .site-footer {
-  position: fixed;
-  left: 0;
+  clear: both;
+  position: relative;
   bottom: 0;
   width: 100%;
+  height: 2.5rem;
   text-align: center;
 }
 </style>

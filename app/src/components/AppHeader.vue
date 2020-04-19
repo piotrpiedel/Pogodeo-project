@@ -21,7 +21,6 @@ export default {
 <style scoped>
 .app-header {
   padding: 25px;
-  color: #bfc1c8;
   align-self: center;
 }
 </style>
