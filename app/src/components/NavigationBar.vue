@@ -38,6 +38,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .navigation-bar {
+  align-content: center;
+  display: flex;
+  text-align: left;
   max-width: 90%;
   color: #bfc1c8;
 }
@@ -49,16 +52,15 @@ export default {
 .navigation-bar .list-inline {
   list-style: none;
   display: inline-block;
-  padding-top: 20px;
+  padding: 20px;
 }
 
 .navigation-bar .list-inline .list-inline-item {
-  float: left;
+  display: inline-block;
   margin-left: 10px;
 }
 
 .navigation-bar .list-inline .list-inline-item a {
-  padding: 5px 25px;
   color: #bfc1c8;
   font-size: x-large;
   border: 2px solid transparent;
