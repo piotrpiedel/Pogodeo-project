@@ -6,7 +6,7 @@
       <p>{{weatherData.weather[0].description}}</p>
     </div>
     <div class="basic">
-      <p><b>Jakość powietrza:</b><br>PM10: {{airData.PM10}}</p>
+      <p><b>Jakość powietrza:</b><br>PM10: {{airData.PM10}} µg/m3</p>
       <div class="very-good" v-if="airData.PM10 <= 20"><p>Stan powietrza: Bardzo Dobry</p></div>
       <div class="good" v-else-if="airData.PM10 > 20 && airData.PM10 <= 50"><p>Stan powietrza: Dobry</p></div>
       <div class="medium" v-else-if="airData.PM10 > 50 && airData.PM10 <= 80"><p>Stan powietrza: Umiarkowany</p></div>
@@ -44,13 +44,14 @@ export default {
               .then(response => (this.weatherData = response.data))
         }))
 
-        let i = 0;
-        do {
+        navigator.geolocation.getCurrentPosition((position => {
           axios
-            .get("https://cors-anywhere.herokuapp.com/" + "http://api.gios.gov.pl/pjp-api/rest/data/getData/92")
-            .then(response => (this.airData.PM10 = response.data.values[i].value))
-          i++
-        } while (this.airData.PM10 != null)
+              .get("https://api.waqi.info/feed/geo:" +
+                  + position.coords.latitude + ";" + +
+                  + position.coords.longitude + "/?token=cc55ead1478fa527512c51119185c65b98144654"
+              )
+              .then(response => (this.airData.PM10 = response.data.data.iaqi.pm10.v))
+        }))
 
       }
   },
