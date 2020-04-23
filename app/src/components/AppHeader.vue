@@ -1,7 +1,7 @@
 <template>
   <div class="app-header">
     <div class="container">
-      <h1>Pogodeo</h1>
+      <img class="logo" src="@/assets/images/pogodeo_logo.png"/>
     </div>
   </div>
 
@@ -20,7 +20,12 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .app-header {
-  padding: 25px;
+  padding-top: 25px;
   align-self: center;
+}
+
+.logo {
+  max-width: 80%;
+  max-height: 75px;
 }
 </style>
