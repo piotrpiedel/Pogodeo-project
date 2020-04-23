@@ -2,7 +2,6 @@
   <div id="main-container">
     <AppHeader />
     <NavigationBar />
-    <FindLocation />
     <router-view/>
     <SiteFooter />
   </div>
@@ -11,14 +10,12 @@
 <script>
 import AppHeader from "./components/AppHeader.vue";
 import NavigationBar from "./components/NavigationBar.vue";
-import FindLocation from "./components/FindLocation.vue";
 import SiteFooter from "./components/SiteFooter.vue";
 
 export default {
   name: "App",
   components: {
     AppHeader,
-    FindLocation,
     NavigationBar,
     SiteFooter
   }
@@ -30,8 +27,9 @@ export default {
   align-content: center;
   text-align: center;
   margin: 0px;
-  height: 100%;
-  color: #bfc1c8;
-  background: #083c46;
+  min-height: 100%;
+  color: #3a3a44;
+  background-color: #4158D0;
+  background-image: linear-gradient(160deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
 }
 </style>
