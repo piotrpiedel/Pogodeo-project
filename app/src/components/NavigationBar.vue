@@ -7,7 +7,7 @@
             <router-link to="/">Aktualna pogoda</router-link>
           </li>
           <li class="list-inline-item">
-            <router-link to="/about">Pogoda długoterminowa</router-link>
+            <router-link to="/fivedays">Pogoda długoterminowa</router-link>
           </li>
           <li class="list-inline-item">
             <router-link to="/about">Pogoda szczegółowa</router-link>
