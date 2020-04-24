@@ -10,7 +10,7 @@
             <router-link to="/fivedays">Pogoda długoterminowa</router-link>
           </li>
           <li class="list-inline-item">
-            <router-link to="/about">Pogoda szczegółowa</router-link>
+            <router-link to="/detailed">Pogoda szczegółowa</router-link>
           </li>
           <li class="list-inline-item">
             <router-link to="/storm">Mapa okolicznych burz</router-link>
