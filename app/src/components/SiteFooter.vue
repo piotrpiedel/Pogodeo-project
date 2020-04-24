@@ -22,5 +22,6 @@ export default {
   width: 100%;
   height: 2.5rem;
   text-align: center;
+  color: rgba(255, 255, 255, 0.75);
 }
 </style>

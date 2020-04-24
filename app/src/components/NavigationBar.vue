@@ -53,23 +53,30 @@ export default {
   list-style: none;
   display: inline-block;
   padding: 20px;
+    max-width: 100%;
 }
 
 .navigation-bar .list-inline .list-inline-item {
   display: inline-block;
   margin-left: 10px;
+
 }
 
 .navigation-bar .list-inline .list-inline-item a {
-  color: #bfc1c8;
   font-size: x-large;
-  border: 2px solid transparent;
   border-radius: 30px;
   font-weight: 400;
+  text-decoration: none;
+  transition: background-color 0.6s ease;
+  transition: color 0.6s ease;
+  color: white;
+  padding-bottom: 3px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .navigation-bar .list-inline .list-inline-item:hover a {
-  border-color: #009ad8;
-  color: #bfc1c8;
+  background-color: white;
+  color: #920cb3;
 }
 </style>
