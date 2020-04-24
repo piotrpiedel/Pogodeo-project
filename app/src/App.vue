@@ -29,7 +29,7 @@ export default {
   margin: 0px;
   min-height: 100%;
   color: #3a3a44;
-  background-color: #4158D0;
-  background-image: linear-gradient(160deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  background-color: #FF3CAC;
+  background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
 }
 </style>
