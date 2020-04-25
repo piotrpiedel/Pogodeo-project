@@ -5,9 +5,7 @@
       <div class="col" v-for="item in weather" :key="item[0]">
         <h4>{{ item.Date | moment }}</h4>
         <div class="icon">
-          <img
-            :src="'http://openweathermap.org/img/wn/' + icons[item.Day.Icon]"
-          />
+          <img :src="'http://openweathermap.org/img/wn/' + icons[item.Day.Icon]" />
           <p class="lead">{{ item.Day.IconPhrase }}</p>
         </div>
         <div class="temp">
@@ -33,7 +31,6 @@ export default {
       weather: [],
       locationid: "",
       locationName: "",
-      error: [],
       icons: {
         1: "01d@2x.png",
         2: "02d@2x.png",
@@ -50,7 +47,7 @@ export default {
         15: "11d@2x.png",
         16: "11d@2x.png",
         17: "11d@2x.png",
-        18: "12d@2x.png",
+        18: "10d@2x.png",
         19: "13d@2x.png",
         20: "13d@2x.png",
         21: "13d@2x.png",
@@ -76,14 +73,14 @@ export default {
         41: "11d@2x.png",
         42: "11d@2x.png",
         43: "13d@2x.png",
-        44: "13d@2x.png",
-      },
+        44: "13d@2x.png"
+      }
     };
   },
   mounted() {
     var self = this;
 
-    const getLocationInfo = (position) => {
+    const getLocationInfo = position => {
       axios
         .get(
           "https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=" +
@@ -99,30 +96,37 @@ export default {
           getWeatherForecast(response.data.Key);
         })
         .catch(function(error) {
-          self.error.push(error);
+          alert("Wystąpił błąd\n" + error);
         });
     };
 
-    const getWeatherForecast = (locationid) => {
+    const getWeatherForecast = locationid => {
       axios
         .get(
           "https://dataservice.accuweather.com/forecasts/v1/daily/5day/" +
             locationid +
-            "?apikey=3i0AIG0AlexwGVtEr8B0GHGdCNe4eyG4&language=pl-pl&metric=true"
+            "?apikey=" +
+            process.env.VUE_APP_API_KEY +
+            "&language=pl-pl&metric=true"
         )
         .then(function(response) {
           self.weather = response.data.DailyForecasts;
         })
         .catch(function(error) {
-          self.error.push(error);
+          alert("Wystąpił błąd\n" + error);
         });
     };
 
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        self.geolocation = true;
-        getLocationInfo(position);
-      });
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          self.geolocation = true;
+          getLocationInfo(position);
+        },
+        () => {
+          alert("Aby zobaczyć pogodę należy włączyć lokalizację");
+        }
+      );
     }
   },
   filters: {
@@ -130,8 +134,8 @@ export default {
       return moment(date)
         .locale("pl")
         .format("dddd");
-    },
-  },
+    }
+  }
 };
 </script>
 
