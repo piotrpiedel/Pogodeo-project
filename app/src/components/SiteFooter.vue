@@ -1,6 +1,6 @@
 <template>
   <footer class="site-footer">
-    <p class="colophon">Copyright 2019 Pogodeo. Designed by Pogodeo.inc. All rights reserved</p>
+    <p>Copyright 2019 Pogodeo. Designed by Pogodeo.inc. All rights reserved</p>
   </footer>
 </template>
 
