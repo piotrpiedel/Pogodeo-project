@@ -1,16 +1,18 @@
 <template>
-  <div class="container">
-    <h3>Pogoda dla {{ locationName }}</h3>
+  <div id="pages-container">
+    <h2 class="title">Pogoda dla {{ locationName }}</h2>
     <div class="row">
       <div class="col" v-for="item in weather" :key="item[0]">
         <h4>{{ item.Date | moment }}</h4>
         <div class="icon">
-          <img :src="'http://openweathermap.org/img/wn/' + icons[item.Day.Icon]" />
+          <img
+            :src="'http://openweathermap.org/img/wn/' + icons[item.Day.Icon]"
+          />
           <p class="lead">{{ item.Day.IconPhrase }}</p>
         </div>
         <div class="temp">
-          <h3>{{ item.Temperature.Maximum.Value }}&#8451;</h3>
-          <h3>{{ item.Temperature.Minimum.Value }}&#8451;</h3>
+          <p>{{ item.Temperature.Maximum.Value }}&#8451;</p>
+          <p id="temp-night">{{ item.Temperature.Minimum.Value }}&#8451;</p>
         </div>
       </div>
     </div>
@@ -73,14 +75,14 @@ export default {
         41: "11d@2x.png",
         42: "11d@2x.png",
         43: "13d@2x.png",
-        44: "13d@2x.png"
-      }
+        44: "13d@2x.png",
+      },
     };
   },
   mounted() {
     var self = this;
 
-    const getLocationInfo = position => {
+    const getLocationInfo = (position) => {
       axios
         .get(
           "https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=" +
@@ -100,7 +102,7 @@ export default {
         });
     };
 
-    const getWeatherForecast = locationid => {
+    const getWeatherForecast = (locationid) => {
       axios
         .get(
           "https://dataservice.accuweather.com/forecasts/v1/daily/5day/" +
@@ -119,7 +121,7 @@ export default {
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
-        position => {
+        (position) => {
           self.geolocation = true;
           getLocationInfo(position);
         },
@@ -134,10 +136,41 @@ export default {
       return moment(date)
         .locale("pl")
         .format("dddd");
-    }
-  }
+    },
+  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped>
+#pages-container {
+  padding-bottom: 10vh;
+  padding-top: 10vh;
+  font-size: 25px;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50px;
+  margin-bottom: 50px;
+}
+.title {
+  padding-bottom: 5vh;
+}
+.temp {
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+.temp-night {
+  color: #bfc1c8;
+}
+.col {
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+}
+</style>
