@@ -47,7 +47,7 @@ export default {
         15: "11d@2x.png",
         16: "11d@2x.png",
         17: "11d@2x.png",
-        18: "12d@2x.png",
+        18: "10d@2x.png",
         19: "13d@2x.png",
         20: "13d@2x.png",
         21: "13d@2x.png",
