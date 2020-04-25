@@ -9,12 +9,14 @@
     </div>
     <div class="basic">
       <p><b>Jakość powietrza:</b><br>PM10: {{airData.PM10}} µg/m3</p>
-      <div class="very-good" v-if="airData.PM10 <= 20"><p>Stan powietrza:<br>Bardzo Dobry</p></div>
+      <div class="medium"  v-if="airData.PM10 === null">Stan powietrza:<br>Nieznany</div>
+      <div class="very-good" v-else-if="airData.PM10 <= 20"><p>Stan powietrza:<br>Bardzo Dobry</p></div>
       <div class="good" v-else-if="airData.PM10 > 20 && airData.PM10 <= 50"><p>Stan powietrza:<br>Dobry</p></div>
       <div class="medium" v-else-if="airData.PM10 > 50 && airData.PM10 <= 80"><p>Stan powietrza:<br>Umiarkowany</p></div>
       <div class="mediocre" v-else-if="airData.PM10 > 80 && airData.PM10 <= 110">Stan powietrza:<br>Dostateczny</div>
       <div class="bad" v-else-if="airData.PM10 > 110 && airData.PM10 <= 150">Stan powietrza:<br>Zły</div>
       <div class="very-bad" v-else-if="airData.PM10 > 150">Stan powietrza:<br>Bardzo Zły</div>
+    
     </div>
   </div>
 </template>
@@ -52,7 +54,7 @@ export default {
                   + position.coords.latitude + ";" + +
                   + position.coords.longitude + "/?token=cc55ead1478fa527512c51119185c65b98144654"
               )
-              .then(response => (this.airData.PM10 = response.data.data.iaqi.pm10.v))
+              .then(response => (this.airData.PM10 = (response.data.data.iaqi.pm10 && response.data.data.iaqi.pm10.v) || null))
         }))
 
       }
