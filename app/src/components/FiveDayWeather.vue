@@ -6,7 +6,7 @@
         <h4>{{ item.Date | moment }}</h4>
         <div class="icon">
           <img
-            :src="'http://openweathermap.org/img/wn/' + icons[item.Day.Icon]"
+            :src="'https://openweathermap.org/img/wn/' + icons[item.Day.Icon]"
           />
           <p class="lead">{{ item.Day.IconPhrase }}</p>
         </div>
