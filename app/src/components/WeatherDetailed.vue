@@ -13,7 +13,11 @@
         <br />
         PM10: {{airData.PM10}} µg/m3
       </p>
-      <div class="very-good" v-if="airData.PM10 <= 20">
+      <div class="medium" v-if="airData.PM10 === null">
+        Stan powietrza:
+        <br />Nieznany
+      </div>
+      <div class="very-good" v-else-if="airData.PM10 <= 20">
         <p>
           Stan powietrza:
           <br />Bardzo Dobry
@@ -96,7 +100,11 @@ export default {
               "/?token=cc55ead1478fa527512c51119185c65b98144654"
           )
           .then(
-            response => (this.airData.PM10 = response.data.data.iaqi.pm10.v)
+            response =>
+              (this.airData.PM10 =
+                (response.data.data.iaqi.pm10 &&
+                  response.data.data.iaqi.pm10.v) ||
+                null)
           );
       });
     }
